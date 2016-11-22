@@ -11,7 +11,7 @@ hdlr.setFormatter(formatter)
 logger.addHandler(hdlr) 
 logger.setLevel(logging.WARNING)
 
-sourcePath = os.getenv('Sonarr_EpisodeFile_Path', 'default')
+sourcePath = os.getenv('Sonarr_EpisodeFile_SourcePath', 'default')
 destinationPath = os.getenv('Sonarr_EpisodeFile_Path', 'default')
 
 logger.info('sourcePath: ' + sourcePath)
