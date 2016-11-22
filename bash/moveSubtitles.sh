@@ -1,8 +1,4 @@
-SOURCE_PATH = $NZBPP_DIRECTORY
-DESTINATION_PATH = $NZBPP_FINALDIR
+SOURCE_PATH = $sonarr_episodefile_sourcepath
+DESTINATION_PATH = $sonarr_episodefile_path
 
-#if  $NZBPP_TOTALSTATUS == "SUCCESS" and $NZBPP_UNPACKSTATUS == 2:
-
-if [ "$NZBPP_TOTALSTATUS" == "SUCCESS" ] && [ "$NZBPP_UNPACKSTATUS" == 2 ] then
-	find $SOURCE_PATH '*.srt' -exec cp -vuni '{}' $DESTINATION_PATH ";"
-fi
+find $SOURCE_PATH '*.srt' -exec cp -vuni '{}' $DESTINATION_PATH ";"
