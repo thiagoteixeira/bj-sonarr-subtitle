@@ -13,15 +13,12 @@ try:
 	logger.addHandler(hdlr) 
 	logger.setLevel(logging.INFO)
 
-	sourcePath = os.environ.get('SONARR_EPISODEFILE_SOURCEFOLDER')
-	destinationPath =  os.path.dirname(os.environ.get('SONARR_EPISODEFILE_PATH'))
-
-	logger.info('sourcePath: ' + sourcePath)
-	logger.info('destinationPath: ' + destinationPath)
-
+	sourcePath = os.environ['sonarr_episodefile_sourcefolder']
+	destinationPath =  os.path.dirname(os.environ['sonarr_episodefile_path'])
 
 	for file in os.listdir(sourcePath):
     		if file.lower().endswith('.srt'):
 	    		shutil.copy(os.path.join(sourcePath,file), os.path.join(destinationPath,file))
+	    		logger.info('File ' + file + ' moved from ' + sourcePath + ' to ' + destinationPath)
 except Exception as e:
 	logger.error(e)
